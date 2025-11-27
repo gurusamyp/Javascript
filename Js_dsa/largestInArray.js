@@ -1,8 +1,8 @@
 let arr = [1,55,18,19,1,50,100];
 
 function largestInArr(arr){
-    let largeItem = 0;
-    for(let i = 0; i<arr.length; i++){
+    let largeItem = arr[0];
+    for(let i = 1; i<arr.length; i++){
         if(arr[i]  > largeItem){
             largeItem = arr[i];
         }
