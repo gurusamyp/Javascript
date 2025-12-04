@@ -1,16 +1,29 @@
-let string = "i got intern at geEksforgeeks";
+// let string = "i got intern at geEksforgeeks";
+let string = "i";
 
 function toCamaleCase(s){
-    let stringArr = s.toLowerCase()
-    stringArr.split(" ").forEach(element => {
-        
-        console.log(element);
-    });
+    let stringArr = s.toLowerCase().split(' ');
+                s.toUpperCase();
 
+    for(const element of stringArr){
+        console.log(element.length);
+    }
 
     
     
-    return ;
+    for(let i = 0; i<=stringArr.length;i++){
+        if(stringArr.length == 1){
+            // stringArr.toUpperCase();
+            console.log(stringArr);
+        } else{
+
+        }
+    }
+
+    return stringArr ;  
+    
+    
 }
 
-toCamaleCase(string);
+const value = toCamaleCase(string);
+console.log(value);
