@@ -2,12 +2,12 @@ let string = "i got intern at geEksforgeeks";
 
 function toCamaleCase(s){
     let stringArr = s.toLowerCase()
-    stringArr.split(" ").reduce((s,c)=>{
-        s+(c.charAt(0).toUpperCase()+c.slice(1))
+    stringArr.split(" ").forEach(element => {
+        
+        console.log(element);
     });
 
 
-    console.log(stringArr);
     
     
     return ;
