@@ -1,29 +1,24 @@
-// let string = "i got intern at geEksforgeeks";
-let string = "i";
+let string = "i got intern at geEksforgeeks";
+// let string = "guru";
 
-function toCamaleCase(s){
-    let stringArr = s.toLowerCase().split(' ');
-                s.toUpperCase();
-
-    for(const element of stringArr){
-        console.log(element.length);
-    }
-
-    
-    
-    for(let i = 0; i<=stringArr.length;i++){
-        if(stringArr.length == 1){
-            // stringArr.toUpperCase();
-            console.log(stringArr);
-        } else{
-
-        }
-    }
-
-    return stringArr ;  
-    
-    
+function splitSentence(s){
+    let stringArr = s.toLowerCase().split(' ');                
+    return stringArr;
 }
 
-const value = toCamaleCase(string);
-console.log(value);
+function toCamaleCase(string){
+    let stringArr = splitSentence(string);
+    let camelCaseWords =[];
+    for(let word of stringArr){
+        capitalWord = word[0].toUpperCase() + word.slice(1) ;
+        camelCaseWords.push(capitalWord);
+        
+    }
+    return joinWords(camelCaseWords);
+}
+
+function joinWords(strArr){
+    return strArr.join(' ');
+    
+}
+console.log(toCamaleCase(string))
