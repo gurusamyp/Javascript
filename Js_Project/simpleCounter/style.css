@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+ }
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ .app{
+    width: 500px;
+    height: 250px;
+    background-color:yellowgreen ;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+ }
+
+.value {
+    font-size: xx-large;
+    font-weight: 700;
+    border: solid 2px black;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: blue;
+    color: azure;
+}
+ 
+button {
+    width: 77px;
+    margin: 10px;
+    border: solid 2px black;
+    padding: 15px 10px;
+    border-radius: 10px;
+    color: blue;
+    background-color: blanchedalmond;
+    font-size: medium;
+    font-weight: 700;
+}
+
