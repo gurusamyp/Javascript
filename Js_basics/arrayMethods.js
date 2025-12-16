@@ -20,7 +20,7 @@ let sliced = arr2.slice(1, 3) // 1 and 2, not 3
 console.log(arr2);
 console.log(sliced); //[ 'study', 'JavaScript' ]
 
-//concat
+//concatanation
 
 console.log(['a','b','c'].concat([1,2,3])); // [ 'a', 'b', 'c', 1, 2, 3 ]
 
