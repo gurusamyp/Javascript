@@ -101,4 +101,66 @@ console.log(wordLenght);  //  [ 3, 3, 5, 4 ]
 let newWord = newArr.map(word => word.concat("-new"));
 console.log(newWord);   //[ 'war-new', 'and-new', 'peace-new', 'book-new' ]
 
+
+const prices = [100, 2000, 30000];
+const priceAfterGST = prices.map(price =>price * 1.18);
+
+console.log(priceAfterGST); // [ 118, 2360, 35400 ];
+
 //sort(fn)
+
+console.log(newArr.sort()); // [ 'and', 'book', 'peace', 'war' ]  - ordered based on alphabetic order.
+let numbers = [1, 2, 3,11,21];
+
+console.log(numbers.sort()); //[ 1, 11, 2, 21, 3 ] -- numbers are read as a string and based on that stirng the elements are sorted.
+
+// so to sort the numbers we need comparing functions (a,b) => a-b  for accending order & (a,b)=>b-a for decending order.
+
+console.log(numbers.sort((a,b)=>a-b)); // [ 1, 2, 3, 11, 21 ] -- asceding order
+console.log(numbers.sort((a,b)=>b-a)); // [ 21, 11, 3, 2, 1 ] -- decending order
+
+
+//split and join
+
+let names = 'Bilbo, Gandalf, Nazgul';
+
+
+//arr.split(',' , optional-lenghtOfArr)
+let nameArr = names.split(',');
+console.log(nameArr.length) //3
+
+console.log(names.split(',',2)); //[ 'Bilbo', ' Gandalf' ]  -- only 2 elemnts are splited.
+
+for(let name of nameArr){
+    console.log(name);
+}
+/*  Bilbo
+    Gandalf
+    Nazgul
+*/
+/// join  -- arr.join(separator);
+console.log(nameArr.join(','));  // Bilbo, Gandalf, Nazgul
+
+
+
+// reduce and reduceRight -- arr.reduce(function(accumulator, item, index, array) { .... }, [initial]);
+// When we need to iterate over an array – we can use forEach, for or for..of.
+// When we need to iterate and return the data for each element – we can use map.
+
+let salaryArr = [10000,20000, 45000, 12200];
+
+let totalSalary = salaryArr.reduce((sum, current) => sum + current, 0);
+
+console.log(`total salry : ${totalSalary}`); //total salry : 87200
+
+
+// eg: count the roles
+
+let employees = ["Dev", "Tester", "Dev", "Manager", "Dev"];
+
+let roleCount = employees.reduce((count, role) => {
+     count[role] = (count[role] || 0) + 1;
+     return count;
+}, {});
+
+console.log(roleCount); // { Dev: 3, Tester: 1, Manager: 1 }
