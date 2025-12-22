@@ -154,7 +154,7 @@ let totalSalary = salaryArr.reduce((sum, current) => sum + current, 0);
 console.log(`total salry : ${totalSalary}`); //total salry : 87200
 
 
-// eg: count the roles
+// eg 1: count the roles
 
 let employees = ["Dev", "Tester", "Dev", "Manager", "Dev"];
 
@@ -164,3 +164,41 @@ let roleCount = employees.reduce((count, role) => {
 }, {});
 
 console.log(roleCount); // { Dev: 3, Tester: 1, Manager: 1 }
+
+//eg 2: group the orders
+
+const orders = [
+  { id: 1, status: "Delivered" },
+  { id: 2, status: "Pending" },
+  { id: 3, status: "Delivered" }
+];
+
+const groupedOrders = orders.reduce((grouped, order) => {
+    if (!grouped[order.status]) {
+        grouped[order.status] = [];
+    }
+    grouped[order.status].push(order);
+    return grouped;
+},{});
+
+console.log(groupedOrders);
+/* {
+  Delivered: [ { id: 1, status: 'Delivered' }, { id: 3, status: 'Delivered' } ],
+  Pending: [ { id: 2, status: 'Pending' } ]
+} */
+
+
+
+//   Array.isArray()  -  array in Js is a Object, 
+console.log(typeof []) // object
+console.log(typeof {}) // object
+
+console.log(Array.isArray([])) // true
+console.log(Array.isArray({})) // flase  - its an object
+
+
+// thisArg
+
+
+
+
