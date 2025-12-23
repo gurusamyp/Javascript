@@ -72,13 +72,33 @@ tomatoes : 350
 onion : 50
 */
 
-//Objet ===> to ==> Map.
+//Object ===> to ==> Map.
 
 let man = {
     name:"Guru",
     age: 37,
 }
 
-let ObjToMap = new Map(Object.entries(man));
+let ObjToMap = new Map(Object.entries(man)); // object to map entries as array.
 console.log(ObjToMap.get('name')); //Guru
 console.log(ObjToMap.get('age')); //37
+
+// map ==>to==> obj
+
+let mapToObj = new Map();
+mapToObj.set('banana',5);
+mapToObj.set('apple',15);
+mapToObj.set('mango',25);
+
+let itsObj = Object.fromEntries(mapToObj.entries());
+
+console.log(itsObj.banana); //5
+console.log(itsObj.apple); //15
+
+
+let itsObj2 = Object.fromEntries(mapToObj);
+
+console.log(itsObj2.apple); //15
+console.log(itsObj2.mango); //25
+
+

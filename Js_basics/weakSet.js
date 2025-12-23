@@ -1,0 +1,1 @@
+//we may only add objects to WeakSet (not primitives)
