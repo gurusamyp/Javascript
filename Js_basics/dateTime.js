@@ -43,3 +43,27 @@ console.log("Minutes: " +getDateTime.getMinutes());
     Hours: 15
     Minutes: 59
 */
+
+console.log("Time Zone: " +getDateTime.getTimezoneOffset()); // Time Zone: -330  (in minutes) 5*60 + 30 = 330
+
+function converMinToHrs(timeInMin){
+    let hrs = Math.floor(timeInMin/60);
+    let min = timeInMin%60;
+
+    return {
+        Hours:hrs,
+        minutes:min,
+    }
+
+}
+
+let min = 330
+let timeConvert = converMinToHrs(min);
+console.log(timeConvert); // { Hours: 5, minutes: 30 }
+console.log(`Minute ${min} is converted to hours as ${timeConvert.Hours} hour and ${timeConvert.minutes} minutes.`);
+//Minute 330 is converted to hours as 5 hour and 30 minutes.
+
+
+
+let ms = Date.parse('2012-01-26T13:51:50.417-07:00');
+console.log(ms); // 1327611110417 -- the offset is calculated in milliseconds difference from 1st Jan 1970.
