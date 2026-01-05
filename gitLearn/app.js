@@ -8,3 +8,4 @@ function getDiscount(userType) {
 
 const finalPrice = price * (1 - getDiscount('gold'));
 console.log(`Discounted Price: $${finalPrice}`);
+console.log(`Standard Price: $${price}`);
