@@ -22,7 +22,7 @@ async function user() {
     let response = await fetch('https://dummyjson.com/users');
     let data = await response.json();
 
-    // console.log(data);
+    console.log(data);
     
 }
 user();
