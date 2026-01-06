@@ -9,14 +9,16 @@
     <div id="elem">
         <div id="elem-content">This is a DOM Element</div>
     </div>
-    <ul id="firstUL">
-        <li>The</li>
-        <li>test</li>
-    </ul>
-    <ul id="secondUL">
-        <li>has</li>
-        <li>passed</li>
-    </ul>
+    <div id = "ULlist">
+        <ul id="firstUL">
+            <li>The</li>
+            <li>test</li>
+        </ul>
+        <ul id="secondUL">
+            <li>has</li>
+            <li>passed</li>
+        </ul>
+    </div>
 
     <a href="http://example.com/file.zip">...</a>
     <a href="http://ya.ru">...</a>
@@ -31,9 +33,12 @@
             console.log(elm.innerHTML); //test, passed
             console.log(elm.textContent); //test, passed
         }
+
+        //<!-- document.querySelectorAll -->
         console.log(document.querySelectorAll('ul > li:last-child')[0].textContent); //test
         console.log(document.querySelectorAll('ul > li:last-child')[1].textContent); //passed
 
+        // Matches
         for(let elem of document.body.children){
             if(elem.matches("a[href$='zip']")){  // end with
                 console.log(elem.href); // http://example.com/file.zip
@@ -46,6 +51,20 @@
                 console.log(elem.href); //????
             }
         }
+
+        //Closest
+        let secondUL = document.querySelector('#secondUL');
+        console.log(secondUL.closest('#ULlist')); // <div id = "ULlist">...</div> -- match with itself, and then upward
+
+        // document.getElementById, ==>  id
+                //Elements
+        // document.getElementsByClassName, ==> class
+        // document.getElementsByName, ==> name
+        // document.getElementsByTagName, ==> tags
+        // document.getElementsByTagNameNS, ==> tags with Name Space
+        
+        // document.getRootNode,
+        // document.getSelection
     </script>
 </body>
 </html>

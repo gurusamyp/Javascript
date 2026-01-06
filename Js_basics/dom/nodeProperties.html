@@ -1,0 +1,48 @@
+<!-- Node properties: type, tag and contents -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node Properies</title>
+ </head>
+ <body>
+    happy to say! hi!
+    <!-- Comment -->
+    <p>A Paragraph</p>
+    <div>A div</div>
+    <script>
+
+        let elem = document.body;
+        // node type
+        console.log(elem.nodeType); // 1 - element
+        console.log(elem.firstChild.nodeType); // 3 text
+        console.log(document.nodeType); // 9 - document
+
+        //...node and tag name
+
+        console.log(document.body.nodeName);  // BODY
+        console.log(document.body.tagName); // BODY --only for element nodes
+
+        // innerHTML - only for elements
+
+        console.log(document.body.innerHTML); //tts shows all the content b/w body tag as text.
+        document.body.innerHTML = "The new body content" // replace all the content by this text.
+
+        //outerHTML
+
+        //nodeValue/data -- text node content
+        let text = document.body.firstChild;
+        console.log(text.data); // The new body content  - previous innerHTML replace the content.
+
+        let comment = text.nextSibling;
+        console.log(comment); //  Null
+
+        // textContent - elem.textContent
+
+        //hidden - <div hidden>...</div>, --simmilar to - tyle="display:none"
+                 //elem.hidden = true;
+    </script>
+    
+ </body>
+ </html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attributes and Properties</title>
+</head>
+<body>
+<div id="guru" class="samy" style="color: red;">Properties -- In DOM objetc - JS code</div>
+<div id="samy" class="Guru" style="color: red;">Attributes - inside the HTML tag - alway has string value</div>
+
+<div show-info="name"></div>
+<div show-info="age"></div>
+
+<div id="dabout" data-about="elephent">The elephent think</div>
+
+    <script>
+        document.body.mydata = { // DOM nodes are Javascript object
+            name: "Guru",
+            title: "Mr."
+        }
+
+        console.log(document.body.mydata.name); //Guru
+
+        document.body.sayHi = function() {
+            console.log(`Hi! ${document.body.mydata.title}${document.body.mydata.name}`);
+        }
+        document.body.sayHi(); // Hi! Mr.Guru
+        let div = document.getElementById('guru')
+
+        // for only standard attribute can be access  - Attribute -> Case-Insensitive.
+        
+        console.log('ID: ', div.getAttribute('id')); //guru
+        console.log('Has Attribute Class: ', div.hasAttribute('class')); // Has Attribute Class:  true
+        
+        div.setAttribute('style','color:blue;')
+        console.log('style: ', div.getAttribute('style')); //style:  color:blue;
+        
+        div.removeAttribute('class');
+        console.log('Has Attribute Class: ', div.hasAttribute('class')); // Has Attribute Class:  false
+
+
+        // non-standard attriputes.
+
+        let user = {
+            name:'Guru',
+            age: 37,
+        }
+
+        for(let div of document.querySelectorAll('[show-info]')){
+            let field = div.getAttribute('show-info');
+            div.innerHTML = user[field];
+        }
+
+        // data - set
+            let divDB = document.getElementById('dabout')
+            console.log(divDB.dataset.about); // elephent
+
+    </script>
+    
+</body>
+</html>
