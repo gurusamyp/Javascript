@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Style</title>
+</head>
+<body>
+
+    <div id="elem" class="divClass large">Guru</div>
+
+    <script>
+    // Accessing and Modifying Document Styles. className & classList
+    let elem = document.getElementById('elem');
+    console.log(elem.className); // divClass large
+    elem.classList.add('super');
+    console.log(elem.className); // divClass large super
+    console.log(elem.classList); // DOMTokenList(3) ['divClass', 'large', 'super', value: 'divClass large super']
+    console.log(elem.classList.value); // divClass large super
+    elem.classList.remove('super');
+    console.log(elem.classList.length); //2 - after removed class 'super'.
+    elem.classList.toggle('toggleClass');
+    console.log(elem.classList.length);
+
+    </script>
+    
+</body>
+</html>

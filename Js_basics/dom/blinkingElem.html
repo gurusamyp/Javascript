@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blinking Element</title>
+    <div id="myName"></div>
 </head>
 <body>
     <h1 id="elem">Gurusamy Peruml</h1>
     <script>
         let elem = document.getElementById('elem');
+        let myName = document.getElementById('myName');
         setInterval(() => elem.hidden = !elem.hidden,1000)
+
+        let timerID = setTimeout(function blink(){
+            myName.textContent = "Guru...guru"   // need to check???????
+            let timerID = setTimeout(blink, 2000);
+        }, 2000)
         
     </script>
 </body>
