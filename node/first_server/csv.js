@@ -7,8 +7,10 @@ const port = 8000;
 
 //request listner - to handle request and response
 const requestListener = function (req, res){
+    res.setHeader('Content-Type','text/csv');
+    res.setHeader("Content-Disposition", "attachment;filename=oceanpals.csv"); // browser how to display the data, downloading filename = oceanpals.csv,
     res.writeHead(200); // response code set in HTTP 200-ok
-    res.end("My First Server!"); // send the response body and close the connection
+    res.end("`id,name,email\n1,Sammy Shark,shark@ocean.com`"); // send the response body and close the connection
 }
 
 //create server with request listener

@@ -7,8 +7,9 @@ const port = 8000;
 
 //request listner - to handle request and response
 const requestListener = function (req, res){
+    res.setHeader('Content-Type','text/html');
     res.writeHead(200); // response code set in HTTP 200-ok
-    res.end("My First Server!"); // send the response body and close the connection
+    res.end("<html><body><h1>This is HTML</h1></body></html>"); // send the response body and close the connection
 }
 
 //create server with request listener

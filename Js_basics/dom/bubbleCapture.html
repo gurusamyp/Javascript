@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling and Capturing</title>
+    <style>
+        body *{
+            margin: 10px;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1> ==> Event Bubbling and Capturing</h1>
+
+    <!-- Event Bubble -->
+    <form action="" onclick="alert('form')"> FORM <!--  this event generate bubble FORM  -->
+        <div onclick="alert('div')">DIV<!--  this event generate bubble DIV->FORM  -->
+            <p onclick="alert('p')">P</p> <!--  this event generate bubble P->DIV->FORM  -->
+        </div>
+    </form>
+    <form id="form"> FORM <!--  this event generate bubble FORM  -->
+        <div>DIV<!--  this event generate bubble DIV->FORM  -->
+            <p>P</p> <!--  this event generate bubble P->DIV->FORM  -->
+        </div>
+    </form>
+
+    <form id="stopBubling"> FORM <!--  this event generate bubble FORM  -->
+        <div>DIV<!--  this event generate bubble DIV->FORM  -->
+            <p>P</p> <!--  this event generate bubble P->DIV->FORM  -->
+        </div>
+    </form>
+
+    <script>
+        // let h1 = document.getElementsByTagName('h1')[0];
+        // setInterval(() => h1.hidden = !h1.hidden, 1000);
+
+        let form = document.getElementById('form');
+        form.onclick = function(event){
+            alert('Tareget : '+event.target.tagName+', this= '+ this.tagName);
+        } 
+        // when click on p - Tareget : P, this= FORM
+        // when click on div - Tareget : DIV, this= FORM
+        // when click on form - Tareget : FORM, this= FORM
+
+        // To stop bubbling  -- event.stopPropagation();
+        
+        let stopBubling = document.getElementById('stopBubling');
+        stopBubling.onclick = function(event){
+            alert('Tareget : '+event.target.tagName+', this= '+ this.tagName);
+            event.stopPropagation();
+        } 
+
+    </script>
+</body>
+</html>
