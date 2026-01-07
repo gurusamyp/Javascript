@@ -21,6 +21,29 @@
     console.log(elem.classList.length); //2 - after removed class 'super'.
     elem.classList.toggle('toggleClass');
     console.log(elem.classList.length);
+    elem.classList.toggle('toggleClass'); // remove toggleClass
+    console.log(elem.classList.length); // 2 - after toggle again.
+    console.log(elem.classList.contains('large')); // true
+ 
+    //element style
+
+    elem.style.color = 'red'
+    elem.style.border = ' 2px Solid black';
+    elem.style.padding = '10px';
+    elem.style.fontSize = '20px';
+    elem.style.fontWeight ='700';
+
+    // reset properties.
+    document.body.style.background = 'yellow'; // set BG as yellow
+    setTimeout(() => document.body.style.background = '', 2000); // set BG empty after  2000ms.
+    //setTimeout(() => document.body.style.removeProperty('background') = '', 2000); // set BG empty after  2000ms.
+
+    
+    //cssTest - for complete CSS for a class of an element, which replace all the existing CSS.
+    elem.style.cssText =` width: 100px; 
+                          text-align: center;
+                          margin: 10px;
+                        `;
 
     </script>
     

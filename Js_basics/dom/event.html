@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body>
+    <input type="button" value="Inline-Onclick" onclick="alert('Button clicked!')">
+    <input type="button" value="Function" onclick="countRabbits()">
+    <input id="elem" type="button" value="By-Element" >
+    <button id="eventLis">Event Listener</button>
+    <button id="eventObj">Event Object</button>
+    <button id="eventHandlerObj">Event Handler Object</button>
+    <button id="eventHandlerClass">Event Handler Class</button>
+
+    <script>
+        function countRabbits(){
+            for(let i = 0;i < 4; i++){
+                alert('Rabbit-'+i); // alert accect only one arg. (rabbit, +i) i wont work, only rabbit will take.
+                console.log('Rabbit-',+i);
+            }
+        }
+
+        let elem = document.getElementById('elem');
+        elem.onclick = countRabbits; // assgin function reference, if we assign countRabbits() funtion, onclick wont work.
+        //to remove handler,
+        //elem.onclick = null;
+
+        //addEventListener
+        let evenLis = document.getElementById('eventLis');
+
+        evenLis.onclick = () => alert('Hello') //via a DOM-property.
+        evenLis.addEventListener('click', handlerOne); // via handlers
+        evenLis.addEventListener('click', handlerTwo); // via handlers
+
+        function handlerOne(){
+            alert('Thanks from handler One');
+        }
+
+        function handlerTwo(){
+            alert('Thanks from handler Two');
+        }
+
+        document.addEventListener('DOMContentLoaded', function(){
+            alert("DOM Built"); // alert when DOM completely loaded. 
+        });
+
+        // event object - for every event DOM create an even object
+        let eventObj = document.getElementById('eventObj');
+
+        eventObj.onclick = function(event){
+            alert(event.type + " at " + event.currentTarget); // click at [object HTMLButtonElement]
+            alert("Co-ordinates: " + event.clientX + ":" + event.clientY); // Co-ordinates: 452:25
+            
+        };
+
+        //event handler as Object
+        let eventHandlerObj = document.getElementById('eventHandlerObj');
+        let eventObject = {
+            handleEvent(event){  //handleEvent() is must in Object handler , other function name wont work.
+                alert('This click trigger from the Object Handler'+event.type);
+                console.log('This click trigger from the Object Handler'+event.type);
+            }
+        }
+        eventHandlerObj.addEventListener('click', eventObject);
+
+        //event handler as Class
+
+        let eventHandlerClass = document.getElementById('eventHandlerClass');
+
+        class Menu {
+            handleEvent(event){  // handleevent function is must 
+                switch(event.type){
+                    case 'mousedown':
+                    console.log('Mouse Pressed Down');
+                    break;
+                    case 'mouseup':
+                    console.log('Mouse Released');
+                    break;
+                }
+            }
+        }
+
+        let menu = new Menu()
+        eventHandlerClass.addEventListener('mousedown', menu);
+        eventHandlerClass.addEventListener('mouseup', menu);
+    </script>
+
+    <!-- HTML attribute: onclick="...".
+         DOM property: elem.onclick = function.
+         Methods: elem.addEventListener(event, handler[, phase]) to add, removeEventListener to remove. -->
+</body>
+</html>   
