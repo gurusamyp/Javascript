@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delecation Samples</title>
+</head>
+<body>
+    <ul id="productList">
+        <li data-id="101"><button class="add">Add to Cart</button></li>
+        <li data-id="102"><button class="add">Add to Cart</button></li>
+    </ul>
+
+    <table id="userTable">
+        <tr data-id="1">
+            <td>User 1</td>
+            <td><button class="delete">Delete</button></td>
+        </tr>
+        <tr data-id="2">
+            <td>User 2</td>
+            <td><button class="delete">Delete</button></td>
+        </tr>
+    </table>
+
+    <script>
+        document.getElementById('productList').addEventListener('click', (e) =>{
+            if(e.target.classList.contains('add')){
+                const productId = e.target.closest('li').dataset.id;
+                console.log("Add Product", productId);
+                console.log(e.target);
+            }
+
+        });
+
+        document.getElementById('userTable').addEventListener('click', (e) => {
+            if(e.target.classList.contains('delete')){
+                const userId = e.target.closest('tr').dataset.id;
+                console.log('Deleted User ID :', userId);
+            }
+        })
+    </script>
+    
+</body>
+</html>
