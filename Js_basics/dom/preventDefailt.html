@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevent Default - Event </title>
+</head>
+<body>
+    <ul id="menu" class="menu">
+        <li><a href="/html">HTML</a></li>
+        <li><a href="/javascript">JavaScript</a></li>
+        <li><a href="/css">CSS</a></li>
+    </ul>
+
+    <script>
+        const menu = document.getElementById('menu');
+
+
+        menu.onclick = function(event){
+            if(event.target.nodeNmae != 'a'){
+                return ;
+            }
+
+            let hrefValue = event.target.getAttribute('href');
+            console.log(hrefValue);
+
+            return false;
+        }
+    </script>
+</body>
+</html>

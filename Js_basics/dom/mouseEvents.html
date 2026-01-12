@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Events</title>
+</head>
+<body>
+    <button id="btn">Left Click me</button>
+    <button id="DblBtn">Double Click me</button>
+    <!-- <p class="downup">It Mouse Operations</p> -->
+    <button  class="downup">It Mouse Operations</button>
+
+    <script>
+        const btn = document.getElementById('btn');
+        //left click on mouse
+        btn.addEventListener('click', ()=> {
+            alert('Mouse clicked');
+        });
+
+        //double click
+        document.getElementById('DblBtn').addEventListener('dblclick', () => {
+            alert('Mouse Double click Operation');
+        })
+
+        //mousedown and mouseup
+        const btnMouse = document.getElementsByClassName('downup');
+        
+        btnMouse.addEventListener('mousedown' , () => {
+           btnMouse.style.background = 'red'
+        });
+
+        btnMouse.addEventListener('mouseup' , () => {
+            btnMouse.style.background = 'blue'
+        });
+
+
+
+    </script>
+</body>
+</html>
