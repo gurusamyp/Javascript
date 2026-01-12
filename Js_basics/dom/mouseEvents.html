@@ -4,12 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mouse Events</title>
+    <style>
+        .box, .m-box, .c-box{
+            border: 1px solid black;
+            padding: 20px;
+            margin: 10px;
+            width: 100px;
+            height: 100px;
+            align-content: center;
+        }
+    </style>
 </head>
 <body>
     <button id="btn">Left Click me</button>
     <button id="DblBtn">Double Click me</button>
     <!-- <p class="downup">It Mouse Operations</p> -->
     <button  class="downup">It Mouse Operations</button>
+    <div class="box">Mouseover & Mouse out</div>
+    <div class="m-box">Modifier</div>
+    <div class="c-box" >Modifier</div>
 
     <script>
         const btn = document.getElementById('btn');
@@ -24,16 +37,43 @@
         })
 
         //mousedown and mouseup
-        const btnMouse = document.getElementsByClassName('downup');
+        const btnMouse = document.querySelector('.downup'); //document.getElementsByClassName is a HTMLAllCollection so that not has event listener method
         
         btnMouse.addEventListener('mousedown' , () => {
            btnMouse.style.background = 'red'
+           btnMouse.style.color = 'white'
         });
 
         btnMouse.addEventListener('mouseup' , () => {
             btnMouse.style.background = 'blue'
+            btnMouse.style.color = 'white'
         });
+        
+        //mouseover and mouseout
+        document.querySelector('.box').addEventListener('mouseover', () => {
+            document.querySelector('.box').style.background = 'yellow'
+            document.querySelector('.box').style.border = '3px solid black'
+        })
 
+        document.querySelector('.box').addEventListener('mouseout', () => {
+            document.querySelector('.box').style.background = ''
+            document.querySelector('.box').style.border = '1px solid black'
+        })
+
+        //mouse modifier with keys
+
+        document.querySelector('.m-box').addEventListener('click', (event) => {
+            if(event.altKey && event.shiftKey){ //Key - K capital - case sensitive
+                document.querySelector('.m-box').style.background = 'yellow'
+                document.querySelector('.m-box').style.border = '3px solid black'
+
+            }
+        })
+
+        const cBox = document.querySelector('.c-box');
+        cBox.addEventListener('mousemove', function(event){ //this wont work in the Arrow funtion.
+            event.target.textContent = event.clientX+':'+event.clientY;
+        })
 
 
     </script>
