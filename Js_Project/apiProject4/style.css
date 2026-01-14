@@ -1,0 +1,32 @@
+body {
+    font-family: Arial;
+    padding: 20px;
+}
+
+.controls {
+    margin-bottom: 15px;
+}
+
+input, select {
+    padding: 6px;
+    margin-right: 10px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+.card h3 {
+    margin: 0 0 5px;
+}
+
+.badge {
+    background: #007bff;
+    color: white;
+    padding: 3px 7px;
+    border-radius: 4px;
+    font-size: 12px;
+}
