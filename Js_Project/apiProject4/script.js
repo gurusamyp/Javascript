@@ -52,7 +52,7 @@ function mergeUserWithPosts(users, posts){
         return {
             id: user.id,
             name: user.name,
-            email: user.email,
+            email: user.email.toLowerCase(),
             city: user.address?.city ?? "Unknown",
             postCount: userPosts.length
         };
@@ -69,10 +69,10 @@ function mergeUserWithPosts(users, posts){
         users.forEach(user => {
             userContainer.innerHTML += `
                 <div class='card'>
-                    <h3>${user.name}</h3>
+                    <h3>${user.id}. ${user.name}</h3>
                     <p>Email: ${user.email}</p>
                     <p>City: ${user.city}</p>
-                    <span class="badge">${user.postCount}</span>
+                    <span class="badge">Post Count: ${user.postCount}</span>
                 </div>            
             `;
         });
