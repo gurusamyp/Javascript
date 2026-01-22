@@ -18,10 +18,9 @@ document.getElementById('loadBtn').addEventListener('click', async () => {
 
 
 //to close user's individual data screen
-document.getElementById('close').onclick = (e)=>{
+document.getElementById('close').onclick = (e) => {
     document.getElementById('userDetails').classList.add('hidden');
 }
-
 
 
 //Display data in HTML
@@ -54,7 +53,16 @@ function displayUsers(users){
 
 
 
-function showUserDetails(id){
-        
+function showUserDetails(users, id = 2){
+        const oneUserData = users.find(u => u.id === id)
+        console.log(oneUserData)
     
     }
+
+const userCard = document.getElementsByClassName('userCard')
+console.log(userCard)
+userCard.onclick = async (e) => {
+    const data = await fetchUsers();
+    showUserDetails(data);
+
+}

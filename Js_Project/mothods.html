@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods</title>
+</head>
+<body>
+    
+
+    <script>
+        const data = await fetch('https://dummyjson.com/users?limit=30')
+                   .then(response => response.json());
+
+        const users = data.users;
+        console.log(users)
+        let adult = 0;
+
+        const cards = users.map(user => {
+            if(user.age > 18) adult++;
+
+            return `<div>${user.firstName} (${user.age})</div>`
+        });
+
+        document.body.innerHTML = cards.join('');
+        console.log("Adults",adult);
+    </script>
+    
+</body>
+</html>
