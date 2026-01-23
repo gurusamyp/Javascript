@@ -1,0 +1,21 @@
+CREATE DATABASE user_directory;
+USE user_directory;
+
+CREATE TABLE users (
+	id INT primary key,
+    first_name varchar(100),
+    last_name varchar(100),
+    email varchar(150),
+    age int,
+    gender varchar(20),
+    city varchar(100),
+	role varchar(50)
+);
+
+describe users;
+
+select * from users;
+select first_name from users;
+truncate table users;
+
+alter table users ADD image varchar(255);
