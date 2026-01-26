@@ -2,7 +2,7 @@ const xlsx = require('xlsx');
 const db = require('./db');
 
 async function excelWeb(){
-    const workbook =xlsx.readFile('de_status.xlsx');
+    const workbook =xlsx.readFile('de_status.xlsx' ,{ cellDates: true });
     const sheet = workbook.Sheets[workbook.SheetNames[0]];
     const rows = xlsx.utils.sheet_to_json(sheet);
 
@@ -18,6 +18,7 @@ async function excelWeb(){
             "SELECT employee_id FROM employees WHERE username = ?",
             [username]
         );
+        console.log(existing);
 
         let employeeId;
 
@@ -27,6 +28,7 @@ async function excelWeb(){
                 [username, employeeName, team]
             );
             employeeId = result.insertId;
+            console.log(result);
         } else {
             employeeId = existing[0].employee_id
         }
@@ -46,3 +48,6 @@ async function excelWeb(){
 
 }
 }
+
+excelWeb().then(()=>console.log('Done'))
+          .catch((e)=> console.log(e));
