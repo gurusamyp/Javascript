@@ -1,0 +1,16 @@
+create database login_system;
+use login_system;
+
+create table users (
+	id int auto_increment primary key,
+    username varchar(50) unique not null,
+    email varchar(255) unique not null,
+    password_hash varchar(255) not null,
+    role enum('admin','user', 'moderator') not null default 'user',
+    is_active boolean default true,
+    created_at timestamp default current_timestamp,
+    updated_at timestamp default current_timestamp on update current_timestamp
+);
+describe users;
+select * from users;
+SELECT id, username, role FROM users;
